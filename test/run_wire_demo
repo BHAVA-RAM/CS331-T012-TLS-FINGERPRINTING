@@ -1,0 +1,101 @@
+import subprocess
+import sys
+from pathlib import Path
+
+# Project root directory
+ROOT = Path(__file__).resolve().parent.parent
+
+# Existing fingerprint identification program
+IDENTIFY_SCRIPT = ROOT / "src" / "identify.py"
+
+# All experimental captures
+TESTS = [
+    ("Custom OpenSSL TLS Client",
+     "experiments/capture_10_openssl_custom_tls.pcap"),
+
+    ("Chrome Browser",
+     "experiments/repeat_chrome.pcapng"),
+     
+     ("curl impersonating Chrome",
+ "experiments/curl_chrome152.pcap"),
+
+    ("curl",
+     "experiments/repeat_curl.pcap"),
+
+    ("GnuTLS",
+     "experiments/repeat_gnutls.pcap"),
+
+    ("Go crypto/tls",
+     "experiments/repeat_go.pcap"),
+
+    ("Python ssl",
+     "experiments/repeat_python_ssl.pcap"),
+]
+
+
+def run_test(name, capture):
+    capture_path = ROOT / capture
+
+    print("\n" + "=" * 70)
+    print(f"TEST: {name}")
+    print(f"PCAP: {capture}")
+    print("=" * 70)
+
+    if not capture_path.is_file():
+        print("ERROR: Capture file not found.")
+        return False
+
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(IDENTIFY_SCRIPT),
+            str(capture_path),
+        ],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+
+    if result.stdout:
+        print(result.stdout)
+
+    if result.stderr:
+        print("ERROR OUTPUT:")
+        print(result.stderr)
+
+    if result.returncode != 0:
+        print(f"TEST EXECUTION FAILED (exit code {result.returncode})")
+        return False
+
+    print("IDENTIFICATION SCRIPT COMPLETED")
+    return True
+
+
+def main():
+    if not IDENTIFY_SCRIPT.is_file():
+        print("ERROR: src/identify.py not found.")
+        return
+
+    print("TLS FINGERPRINTING - EXPERIMENTAL DEMONSTRATIONS")
+    print(f"Total experiments: {len(TESTS)}")
+
+    passed = 0
+    failed = 0
+
+    for name, capture in TESTS:
+        if run_test(name, capture):
+            passed += 1
+        else:
+            failed += 1
+
+    print("\n" + "=" * 70)
+    print("EXPERIMENT SUMMARY")
+    print("=" * 70)
+    print(f"Total experiments : {len(TESTS)}")
+    print(f"Completed         : {passed}")
+    print(f"Execution failures: {failed}")
+    print("=" * 70)
+
+
+if __name__ == "__main__":
+    main()

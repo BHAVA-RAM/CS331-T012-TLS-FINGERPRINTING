@@ -1,0 +1,283 @@
+
+{
+  "schema_version": 3,
+  "description": "Baseline reference catalogue of experimentally measured client-side TLS fingerprints. Repeatability and unknown-client test captures are deliberately excluded.",
+  "scope": {
+    "endpoint": "client",
+    "mechanisms": ["JA3", "JA4"]
+  },
+  "matching_policy": "JA3 is matched by MD5 and exact fingerprint string. JA4 is matched by exact canonical fingerprint string. One fingerprint may correspond to multiple software candidates.",
+  "fingerprints": [
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,4866-4867-4865-49196-49200-159-52393-52392-52394-49195-49199-158-49188-49192-107-49187-49191-103-49162-49172-57-49161-49171-51-157-156-61-60-53-47-255,0-11-10-16-22-23-49-13-43-45-51-21,29-23-30-25-24-256-257-258-259-260,0-1-2",
+      "identifier": {
+        "type": "md5",
+        "value": "0149f47eabf9a20d0893e2a44e5a6323"
+      },
+      "observations": [
+        {
+          "client_name": "curl",
+          "client_version": "8.5.0",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/first_https.pcap"],
+          "notes": "Baseline ClientHello captured using curl."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,4866-4867-4865-49196-49200-159-52393-52392-52394-49195-49199-158-49188-49192-107-49187-49191-103-49162-49172-57-49161-49171-51-157-156-61-60-53-47-255,0-11-10-35-22-23-13-43-45-51,29-23-30-25-24-256-257-258-259-260,0-1-2",
+      "identifier": {
+        "type": "md5",
+        "value": "a3afc2c46ba4a7d7fbe1cfb7a3031c2f"
+      },
+      "observations": [
+        {
+          "client_name": "OpenSSL CLI",
+          "client_version": "3.0.13",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/capture_02_openssl_cli_example_com.pcap"],
+          "notes": "Baseline OpenSSL CLI ClientHello."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,4866-4867-4865-49196-49200-159-52393-52392-52394-49195-49199-158-49188-49192-107-49187-49191-103-49162-49172-57-49161-49171-51-157-156-61-60-53-47-255,0-11-10-35-22-23-13-43-45-51-21,29-23-30-25-24-256-257-258-259-260,0-1-2",
+      "identifier": {
+        "type": "md5",
+        "value": "d39e1be3241d516b1f714bd47c2bc968"
+      },
+      "observations": [
+        {
+          "client_name": "Python standard-library ssl client",
+          "client_version": "3.12.3",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/capture_04_python_ssl_example_com.pcap"],
+          "notes": "Baseline ClientHello captured using Python's ssl module."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,49195-49199-49196-49200-52393-52392-49161-49171-49162-49172-49170-4865-4866-4867,0-5-10-11-13-65281-23-18-43-51,29-23-24-25,0",
+      "identifier": {
+        "type": "md5",
+        "value": "88476a293aeb6f5dc7a3630d391c2980"
+      },
+      "observations": [
+        {
+          "client_name": "Go crypto/tls client",
+          "client_version": "1.22.2",
+          "tls_library": "Go crypto/tls",
+          "tls_library_version": "1.22.2",
+          "capture_files": ["captures/capture_06_go_crypto_tls_example_com.pcap"],
+          "notes": "Baseline ClientHello captured using Go crypto/tls."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,4866-4867-4865-4868-49196-52393-49325-49162-49195-49324-49161-49200-52392-49172-49199-49171-157-49309-53-156-49308-47-159-52394-49311-57-158-49310-51,11-13-22-51-65281-28-45-43-35-10-5-0-23,23-24-25-29-30-256-257-258-259-260,0",
+      "identifier": {
+        "type": "md5",
+        "value": "75484e4f01a386b961233d4238ccac89"
+      },
+      "observations": [
+        {
+          "client_name": "GnuTLS CLI",
+          "client_version": "3.8.3",
+          "tls_library": "GnuTLS",
+          "tls_library_version": "3.8.3",
+          "capture_files": ["captures/capture_07_gnutls_cli_example_com.pcap"],
+          "notes": "Baseline ClientHello captured using GnuTLS CLI."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,51-16-43-35-18-23-5-11-0-45-17613-13-51764-65037-65281-10-27,4588-29-23-24,0",
+      "identifier": {
+        "type": "md5",
+        "value": "7fad526f9d93d143d9390fbfa3be30bb"
+      },
+      "observations": [
+        {
+          "client_name": "Google Chrome",
+          "client_version": "156.0.8078.80",
+          "tls_library": "Chromium TLS stack",
+          "capture_files": ["captures/capture_09_chrome_example_com.pcapng"],
+          "notes": "First baseline Chrome ClientHello variant."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA3",
+      "fingerprint_string": "771,4866-4865-49196-49195-49200-49199-49188-49187-49192-49191-49162-49161-49172-49171-157-156-61-60-53-47,0-43-13-35-10-11-51-49-23-65281-45-41,29-23-24,0",
+      "identifier": {
+        "type": "md5",
+        "value": "6ad69cecca55b3321a3261b1ae4aaab1"
+      },
+      "observations": [
+        {
+          "client_name": "Google Chrome",
+          "client_version": "156.0.8078.80",
+          "tls_library": "Chromium TLS stack",
+          "capture_files": ["captures/capture_09_chrome_example_com.pcapng"],
+          "notes": "Second baseline Chrome ClientHello variant."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d311000_e8f1e7e78f70_1f22a2ca17c4",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d311000_e8f1e7e78f70_1f22a2ca17c4"
+      },
+      "observations": [
+        {
+          "client_name": "OpenSSL CLI",
+          "client_version": "3.0.13",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/capture_02_openssl_cli_example_com.pcap"],
+          "notes": "Baseline OpenSSL CLI JA4 fingerprint."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d311100_e8f1e7e78f70_d41ae481755e",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d311100_e8f1e7e78f70_d41ae481755e"
+      },
+      "observations": [
+        {
+          "client_name": "Python standard-library ssl client",
+          "client_version": "3.12.3",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/capture_04_python_ssl_example_com.pcap"],
+          "notes": "Baseline Python SSL JA4 fingerprint."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d3112h1_e8f1e7e78f70_b26ce05bbdd6",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d3112h1_e8f1e7e78f70_b26ce05bbdd6"
+      },
+      "observations": [
+        {
+          "client_name": "curl",
+          "client_version": "8.5.0",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/first_https.pcap"],
+          "notes": "Baseline curl JA4 fingerprint."
+        },
+        {
+          "client_name": "Python Requests",
+          "client_version": "2.34.2",
+          "runtime": "Python 3.12.3",
+          "tls_library": "OpenSSL",
+          "tls_library_version": "3.0.13",
+          "capture_files": ["captures/capture_05_python_requests_example_com.pcap"],
+          "notes": "Baseline Python Requests JA4; identical to curl."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d141000_cbb2034c60b8_e7c285222651",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d141000_cbb2034c60b8_e7c285222651"
+      },
+      "observations": [
+        {
+          "client_name": "Go crypto/tls client",
+          "client_version": "1.22.2",
+          "tls_library": "Go crypto/tls",
+          "tls_library_version": "1.22.2",
+          "capture_files": ["captures/capture_06_go_crypto_tls_example_com.pcap"],
+          "notes": "Baseline Go crypto/tls JA4 fingerprint."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d291300_723694b0fccc_2cc26d266019",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d291300_723694b0fccc_2cc26d266019"
+      },
+      "observations": [
+        {
+          "client_name": "GnuTLS CLI",
+          "client_version": "3.8.3",
+          "tls_library": "GnuTLS",
+          "tls_library_version": "3.8.3",
+          "capture_files": ["captures/capture_07_gnutls_cli_example_com.pcap"],
+          "notes": "Baseline GnuTLS JA4 fingerprint."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d1517h2_8daaf6152771_cb7bf5808d99",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d1517h2_8daaf6152771_cb7bf5808d99"
+      },
+      "observations": [
+        {
+          "client_name": "Google Chrome",
+          "client_version": "156.0.8078.80",
+          "tls_library": "Chromium TLS stack",
+          "capture_files": ["captures/capture_09_chrome_example_com.pcapng"],
+          "notes": "First baseline Chrome JA4 fingerprint."
+        }
+      ]
+    },
+    {
+      "endpoint": "client",
+      "mechanism": "JA4",
+      "fingerprint_string": "t13d201200_2b729b4bf6f3_89322cc15493",
+      "identifier": {
+        "type": "exact",
+        "value": "t13d201200_2b729b4bf6f3_89322cc15493"
+      },
+      "observations": [
+        {
+          "client_name": "Google Chrome",
+          "client_version": "156.0.8078.80",
+          "tls_library": "Chromium TLS stack",
+          "capture_files": ["captures/capture_09_chrome_example_com.pcapng"],
+          "notes": "Second baseline Chrome JA4 fingerprint."
+        }
+      ]
+    }
+  ]
+}
